@@ -26,11 +26,11 @@ export async function LoginRequest(email,password){
     }
 }
 
-export async function RegistrationRequest(email,firstName,lastName,mobile,password,photo){
+export async function RegistrationRequest(email,firstName,lastName,mobile,password){
     try {
         store.dispatch(ShowLoader());
         let URL = BaseURL + "/registration";
-        let PostBody={email:email,firstName:firstName,lastName:lastName,mobile:mobile,password:password,photo:photo}
+        let PostBody={email:email,firstName:firstName,lastName:lastName,mobile:mobile,password:password}
         let res = await axios.post(URL,PostBody)
         store.dispatch(HideLoader())
         if (res.status===200){
